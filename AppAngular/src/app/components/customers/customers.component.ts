@@ -1,6 +1,6 @@
 import { CustomersService } from './../../customers.service';
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Customer } from 'src/app/Customer';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -35,9 +35,9 @@ export class CustomersComponent implements OnInit {
     this.visibilidadeFormulario = true;
     this.tituloFormulario = 'Novo Cliente';
     this.formulario = new FormGroup({
-      razaoSocial: new FormControl(null),
-      nomeFantasia: new FormControl(null),
-      cpfcnpj: new FormControl(null),
+      razaoSocial: new FormControl(null, Validators.required),
+      nomeFantasia: new FormControl(null, Validators.required),
+      cpfcnpj: new FormControl(null, Validators.required),
     });
   }
 

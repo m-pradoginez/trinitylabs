@@ -41,36 +41,39 @@
 
       <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
         <div class="form-group">
-          <label>Razão Social</label>
+          <label>Razão Social*</label>
           <input
             type="text"
             class="form-control form-control-sm"
             formControlName="razaoSocial"
           />
+          <ion-label style="color: red;" *ngIf="formulario.get('razaoSocial').touched && formulario.get('razaoSocial').errors?.required">O campo razão social é obrigatório.</ion-label>
         </div>
 
         <div class="form-group">
-          <label>Nome Fantasia</label>
+          <label>Nome Fantasia*</label>
           <input
             type="text"
             class="form-control form-control-sm"
             formControlName="nomeFantasia"
           />
+          <ion-label style="color: red;" *ngIf="formulario.get('nomeFantasia').touched && formulario.get('nomeFantasia').errors?.required">O campo nome fantasia é obrigatório.</ion-label>
         </div>
 
         <div class="form-group">
-          <label>CPF/CNPJ</label>
+          <label>CPF/CNPJ*</label>
           <input
             type="text"
             class="form-control form-control-sm"
             formControlName="cpfcnpj"
           />
+          <ion-label style="color: red;" *ngIf="formulario.get('cpfcnpj').touched && formulario.get('cpfcnpj').errors?.required">O campo CPF/CNPJ é obrigatório.</ion-label>
         </div>
 
         <div class="container">
           <div class="row">
             <div>
-              <button type="submit" class="btn btn-sm btn-outline-secondary">
+              <button type="submit" class="btn btn-sm btn-outline-secondary" [disabled]="!formulario.valid">
                 Salvar
               </button>
             </div>
